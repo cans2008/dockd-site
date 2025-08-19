@@ -1,1 +1,0 @@
-// BoatDetails.jsx placeholder
