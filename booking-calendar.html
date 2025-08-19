@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Calendar | Dock’d</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f7ff;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .calendar {
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .calendar input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .summary {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: block;
+      margin: 2rem auto;
+      background-color: #0074d9;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dock’d Booking Calendar</h1>
+
+  <div class="calendar">
+    <label for="rental-date">Select Your Rental Date:</label><br />
+    <input type="date" id="rental-date" min="<?= new Date().toISOString().split('T')[0] ?>" /><br />
+
+    <label for="rental-time">Select Pickup Time:</label><br />
+    <input type="time" id="rental-time" /><br />
+
+    <button class="btn" onclick="confirmBooking()">Confirm Booking</button>
+
+    <div class="summary" id="summary"></div>
+  </div>
+
+  <script>
+    function confirmBooking() {
+      const date = document.getElementById('rental-date').value;
+      const time = document.getElementById('rental-time').value;
+      if (date && time) {
+        document.getElementById('summary').innerHTML =
+          `<strong>Your boat is booked for:</strong><br /> ${date} at ${time}<br /><br />You’ll receive a check-in notification 1 hour prior.`;
+      } else {
+        document.getElementById('summary').innerHTML = "⚠️ Please select both date and time.";
+      }
+    }
+  </script>
+
+</body>
+</html>
