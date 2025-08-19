@@ -1,0 +1,1 @@
+// BoatCard.jsx placeholder

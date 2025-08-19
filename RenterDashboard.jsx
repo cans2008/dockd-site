@@ -1,0 +1,1 @@
+// RenterDashboard.jsx placeholder
